@@ -1,6 +1,21 @@
-declare module "*.css";
-declare module "*.png";
-declare module "*.jpg";
-declare module "*.jpeg";
-declare module "*.svg";
-declare module "*.gif";
+export type Project = {
+  title: string;
+  desc: string;
+  tags: string[];
+  href: string;
+  featured?: boolean;
+  accentColor: string;
+};
+
+export type SocialLink = {
+  name: string;
+  handle: string;
+  href: string;
+  bgColor: string;
+  iconColor: string;
+};
+
+export type Skill = {
+  name: string;
+  color: string;
+};

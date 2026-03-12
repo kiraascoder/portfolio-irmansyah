@@ -1,21 +1,37 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Serif_Display, DM_Mono, Cabinet_Grotesk } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSerif = DM_Serif_Display({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmMono = DM_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const cabinetGrotesk = Cabinet_Grotesk({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "500", "700", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "Irmansyah Muslimin ~ Portfolio",
-  description: "Irmansyah Muslimin Portfolio as Software Engineer",
+  title: "Irmansyah — Frontend Developer",
+  description:
+    "Frontend developer & UI engineer crafting fast, beautiful, and accessible web experiences with Next.js and the modern React ecosystem.",
+  keywords: ["frontend developer", "Next.js", "React", "TypeScript", "UI engineer"],
+  authors: [{ name: "Irmansyah" }],
+  openGraph: {
+    title: "Irmansyah — Frontend Developer",
+    description: "Frontend developer crafting digital experiences that matter.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -26,10 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${dmSerif.variable} ${dmMono.variable} ${cabinetGrotesk.variable}`}
       >
-        <Navbar />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

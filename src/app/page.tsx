@@ -1,53 +1,352 @@
-import Image from "next/image";
-import me from "./../../public/img/me.jpg";
+import Link from "next/link";
+import Navbar from "./components/navbar";
 
 export default function Home() {
   return (
     <>
-      <section className="mx-auto max-w-7xl px-4 min-h-[90vh] flex items-center">
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
-          
-          {/* Left Column - Text */}
-          <div className="flex flex-col justify-center">
-            <h1 className="font-[800] leading-[0.9] tracking-[-0.02em] 
-                           text-black text-[14vw] md:text-[9vw] lg:text-[8vw] xl:text-[7vw]">
-             We<br />Love<br />We<br />Serve
-            </h1>
-          </div>
+      <Navbar />
 
-          {/* Right Column - Image */}
-          <div className="flex flex-col items-center md:items-end justify-center gap-6">
-            <div className="relative">
-  
-              {/* Profile Image */}
-              <div className="overflow-hidden rounded-2xl">
-                <Image
-                  src={me}
-                  alt="Profile"
-                  width={340}
-                  height={420}
-                  className="h-64 w-64 object-cover md:h-72 md:w-72 lg:h-80 lg:w-80"
-                  priority
+      {/* HERO */}
+      <section
+        id="hero"
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          paddingTop: "80px",
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
+        {/* Cursor glow handled client-side via script below */}
+        <div
+          id="cursor-glow"
+          style={{
+            position: "fixed",
+            width: "400px",
+            height: "400px",
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(200,184,154,0.06) 0%, transparent 70%)",
+            pointerEvents: "none",
+            zIndex: 0,
+            transform: "translate(-50%, -50%)",
+          }}
+        />
+
+        <div
+          className="container"
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            padding: "0 48px",
+            width: "100%",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              gap: "80px",
+              alignItems: "center",
+            }}
+          >
+            {/* LEFT */}
+            <div>
+              <div
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "11px",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  color: "var(--accent2)",
+                  background: "rgba(123,158,135,0.1)",
+                  border: "1px solid rgba(123,158,135,0.2)",
+                  padding: "6px 14px",
+                  borderRadius: "100px",
+                  marginBottom: "28px",
+                  animation: "fadeUp 0.8s ease both",
+                }}
+              >
+                <span
+                  style={{
+                    width: "6px",
+                    height: "6px",
+                    background: "var(--accent2)",
+                    borderRadius: "50%",
+                    animation: "pulse 2s infinite",
+                    display: "inline-block",
+                  }}
                 />
+                Available for freelance
+              </div>
+
+              <h1
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(52px, 6vw, 80px)",
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.03em",
+                  color: "var(--text)",
+                  marginBottom: "20px",
+                  animation: "fadeUp 0.8s 0.1s ease both",
+                }}
+              >
+                Crafting digital
+                <br />
+                <em style={{ color: "var(--accent)" }}>experiences</em>
+                <br />
+                that matter.
+              </h1>
+
+              <p
+                style={{
+                  fontSize: "17px",
+                  color: "var(--text-muted)",
+                  lineHeight: 1.7,
+                  maxWidth: "440px",
+                  marginBottom: "40px",
+                  animation: "fadeUp 0.8s 0.2s ease both",
+                }}
+              >
+                Hi, I&apos;m <strong style={{ color: "var(--text)" }}>Irmansyah</strong> — a
+                frontend developer &amp; UI engineer who builds fast, beautiful, and
+                accessible web applications with modern technologies.
+              </p>
+
+              <div
+                style={{
+                  display: "flex",
+                  gap: "16px",
+                  flexWrap: "wrap",
+                  animation: "fadeUp 0.8s 0.3s ease both",
+                }}
+              >
+                <Link
+                  href="/project"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    background: "var(--accent)",
+                    color: "var(--bg)",
+                    padding: "14px 28px",
+                    borderRadius: "100px",
+                    fontWeight: 700,
+                    fontSize: "14px",
+                    letterSpacing: "0.02em",
+                    transition: "transform var(--transition), box-shadow var(--transition)",
+                  }}
+                >
+                  View Work →
+                </Link>
+                <Link
+                  href="/contact"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    color: "var(--text-muted)",
+                    padding: "14px 28px",
+                    borderRadius: "100px",
+                    fontWeight: 500,
+                    fontSize: "14px",
+                    border: "1px solid var(--border-hover)",
+                    transition: "color var(--transition), border-color var(--transition)",
+                  }}
+                >
+                  Get in Touch
+                </Link>
               </div>
             </div>
-            <p className="max-w-[18rem] text-center md:text-right text-xs leading-snug text-black/80">
-              Hi, I'm Irmansyah Muslimin, a Software Engineer.
-            </p>
+
+            {/* RIGHT — Avatar */}
+            <div style={{ animation: "fadeIn 1s 0.4s ease both" }}>
+              <div
+                style={{
+                  position: "relative",
+                  width: "380px",
+                  height: "460px",
+                  margin: "0 auto",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    borderRadius: "200px 200px 160px 160px",
+                    background:
+                      "linear-gradient(160deg, rgba(200,184,154,0.12) 0%, rgba(123,158,135,0.06) 100%)",
+                    border: "1px solid rgba(200,184,154,0.1)",
+                  }}
+                />
+
+                {/* Replace with <Image> component pointing to /img/me.jpg */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "340px",
+                    height: "420px",
+                    borderRadius: "180px 180px 140px 140px",
+                    background: "var(--bg3)",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "12px",
+                    color: "var(--text-dim)",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "12px",
+                  }}
+                >
+                  <span style={{ fontSize: "48px", opacity: 0.3 }}>🧑‍💻</span>
+                  <span>me.jpg</span>
+                </div>
+
+                {/* Floating cards */}
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "-20px",
+                    bottom: "80px",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border-hover)",
+                    borderRadius: "var(--radius)",
+                    padding: "14px 18px",
+                    backdropFilter: "blur(10px)",
+                    animation: "float 4s 1s ease-in-out infinite",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      color: "var(--text-dim)",
+                      fontFamily: "var(--font-mono)",
+                      letterSpacing: "0.08em",
+                      marginBottom: "4px",
+                    }}
+                  >
+                    // experience
+                  </div>
+                  <div style={{ fontSize: "15px", fontWeight: 700 }}>2+ Years</div>
+                </div>
+
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "-20px",
+                    top: "100px",
+                    background: "var(--surface)",
+                    border: "1px solid var(--border-hover)",
+                    borderRadius: "var(--radius)",
+                    padding: "14px 18px",
+                    backdropFilter: "blur(10px)",
+                    animation: "float 4s 2s ease-in-out infinite",
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: "11px",
+                      color: "var(--text-dim)",
+                      fontFamily: "var(--font-mono)",
+                      letterSpacing: "0.08em",
+                      marginBottom: "4px",
+                    }}
+                  >
+                    // status
+                  </div>
+                  <div
+                    style={{
+                      fontSize: "15px",
+                      fontWeight: 700,
+                      color: "var(--accent2)",
+                    }}
+                  >
+                    Open to work
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
         </div>
 
-      </section>
-      
-      {/* About Section - Outside the grid */}
-      <section id="about" className="mx-auto max-w-7xl px-4 py-20">
-        <div className="">
-          <div className=""></div>
-          <div className=""></div>          
+        {/* Scroll indicator */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "40px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "8px",
+            opacity: 0.4,
+            animation: "fadeUp 1s 1s ease both",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              fontFamily: "var(--font-mono)",
+              color: "var(--text-muted)",
+            }}
+          >
+            scroll
+          </span>
+          <div
+            style={{
+              width: "1px",
+              height: "40px",
+              background: "linear-gradient(to bottom, var(--accent), transparent)",
+              animation: "scrollLine 2s ease-in-out infinite",
+            }}
+          />
         </div>
       </section>
+
+      {/* MARQUEE */}
+      <div className="marquee-wrap">
+        <div className="marquee">
+          <span>
+            Next.js <em>✦</em> React <em>✦</em> TypeScript <em>✦</em> Tailwind CSS{" "}
+            <em>✦</em> Node.js <em>✦</em> UI/UX Design <em>✦</em> REST APIs <em>✦</em>{" "}
+            Git <em>✦</em> Next.js <em>✦</em> React <em>✦</em> TypeScript <em>✦</em>{" "}
+            Tailwind CSS <em>✦</em> Node.js <em>✦</em> UI/UX Design <em>✦</em> REST APIs{" "}
+            <em>✦</em> Git
+          </span>
+        </div>
+      </div>
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            const glow = document.getElementById('cursor-glow');
+            if (glow) {
+              document.addEventListener('mousemove', e => {
+                glow.style.left = e.clientX + 'px';
+                glow.style.top = e.clientY + 'px';
+              });
+            }
+            // Scroll reveal
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver(entries => {
+              entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.12 });
+            reveals.forEach(el => observer.observe(el));
+          `,
+        }}
+      />
     </>
   );
 }
