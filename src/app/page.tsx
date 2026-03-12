@@ -233,6 +233,7 @@ export default function Home() {
                       letterSpacing: "0.08em",
                       marginBottom: "4px",
                     }}
+                  // eslint-disable-next-line react/jsx-no-comment-textnodes
                   >
                     // experience
                   </div>
@@ -260,6 +261,7 @@ export default function Home() {
                       letterSpacing: "0.08em",
                       marginBottom: "4px",
                     }}
+                  // eslint-disable-next-line react/jsx-no-comment-textnodes
                   >
                     // status
                   </div>
