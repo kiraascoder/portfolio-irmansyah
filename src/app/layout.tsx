@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, DM_Mono, Cabinet_Grotesk } from "next/font/google";
+import { DM_Serif_Display, DM_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const dmSerif = DM_Serif_Display({
@@ -15,17 +15,22 @@ const dmMono = DM_Mono({
   weight: ["400", "500"],
 });
 
-const cabinetGrotesk = Cabinet_Grotesk({
-  variable: "--font-body",
+const cabinetGrotesk = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
   title: "Irmansyah — Frontend Developer",
   description:
     "Frontend developer & UI engineer crafting fast, beautiful, and accessible web experiences with Next.js and the modern React ecosystem.",
-  keywords: ["frontend developer", "Next.js", "React", "TypeScript", "UI engineer"],
+  keywords: [
+    "frontend developer",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "UI engineer",
+  ],
   authors: [{ name: "Irmansyah" }],
   openGraph: {
     title: "Irmansyah — Frontend Developer",
